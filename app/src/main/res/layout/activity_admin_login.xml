@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.note_hub.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bookss"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient2"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADMIN_LOGIN"
+        android:background="@drawable/round_rect"
+        android:textSize="30dp"
+        android:textColor="#9187cefa"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/welcome_text"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="EMAIL"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_rect"
+        android:id="@+id/et1"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et1"
+        android:hint="Password"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:id="@+id/et2"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:background="@drawable/round_rect"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundd"
+        android:text="LOGIN"
+        android:padding="15dp"
+        android:textColor="#fff"
+        android:onClick="login_1"
+        android:id="@+id/log"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/log"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundd"
+        android:text="SIGN UP"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:textColor="#fff"
+        android:onClick="login_1"
+        android:id="@+id/sign_up"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.admin.note_hub.admin_interface"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="ADMIN"
+            android:textSize="20dp"
+            android:background="@drawable/newround"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:textColor="#000"
+        />
+
+    </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/round"
+           android:orientation="vertical"
+           android:layout_margin="10dp"
+
+           >
+
+
+           <ImageView
+               android:layout_width="150dp"
+               android:layout_height="50dp"
+               android:src="@drawable/ic_users"
+               android:layout_gravity="center"
+               />
+           <TextView
+               android:layout_width="150dp"
+               android:layout_height="100dp"
+               android:text="VIEW USER"
+               android:textSize="20dp"
+               android:gravity="center"
+               android:textColor="#000"
+
+
+               />
+
+
+       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/newround"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            >
+
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_feedback"
+                android:layout_gravity="center"
+                />
+            <TextView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="FEEDBACK"
+            android:gravity="center"
+                android:textSize="20dp"
+              android:textColor="#000"
+        />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            >
+
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logout1"
+                android:layout_gravity="center"
+
+                />
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/round"
+        android:textColor="#000"
+        android:text="LOGOUT"
+        android:gravity="center"
+        android:textSize="20dp"
+        />
+        </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:background="@drawable/newround"
+             android:layout_margin="10dp">
+
+             <ImageView
+                 android:layout_width="150dp"
+                 android:layout_height="50dp"
+                 />
+
+             <TextView
+                 android:layout_width="150dp"
+                 android:layout_height="100dp"
+                 android:text="NOTES"
+                 android:textSize="20dp"
+                 android:textColor="#000"
+                 android:gravity="center"
+                 />
+
+         </LinearLayout>
+
+
+
+</LinearLayout>
+

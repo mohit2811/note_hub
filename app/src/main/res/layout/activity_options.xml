@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gradient3"
+        android:scaleType="centerCrop"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/round"
+        android:text="CONTINUE AS USER"
+        android:padding="15dp"
+        android:textColor="#fff"
+        android:onClick="continue_as_user"
+        android:id="@+id/log"
+        android:layout_above="@+id/continue_admin"
+
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTINUE AS ADMIN"
+        android:textColor="#fff"
+        android:onClick="continue_as_admin"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/round1"
+        android:id="@+id/continue_admin"
+        android:layout_alignParentBottom="true"
+
+        />
+
+</RelativeLayout>

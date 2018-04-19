@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "506232751431",
+    "firebase_url": "https://note-hub-9974c.firebaseio.com",
+    "project_id": "note-hub-9974c",
+    "storage_bucket": "note-hub-9974c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506232751431:android:191bf45f47b39504",
+        "android_client_info": {
+          "package_name": "com.example.admin.note_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506232751431-6m8nl0uouk8pucajesaqfggmbsnaq0i7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.note_hub",
+            "certificate_hash": "7bbec28f9a67fcc31712ff185f3a6fdce153b65b"
+          }
+        },
+        {
+          "client_id": "506232751431-f0hr1dih445elmesnu6os5cq9dhsigcs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkHbeH8AgSF2rI8EYCtsE0PFbS1Uwf7zs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506232751431-f0hr1dih445elmesnu6os5cq9dhsigcs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

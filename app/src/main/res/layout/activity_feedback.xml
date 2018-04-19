@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.note_hub.feedback">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff8da1"
+    android:orientation="horizontal"
+    android:id="@+id/feedback">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:tint="#fff"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FEEDBACK"
+        android:textSize="30dp"
+        android:textStyle="normal"
+        android:textColor="#fff"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="150dp"
+        android:layout_margin="5dp"
+
+        />
+
+</LinearLayout>
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="250dp"
+    android:layout_below="@id/feedback"
+    android:layout_margin="20dp"
+    android:background="@drawable/roundd">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:hint="enter feedback"
+        android:maxLines="2"
+        android:imeOptions="actionDone"
+        android:inputType="textAutoComplete"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:id="@+id/text1"
+        />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:text="send"
+        android:textColor="#ff8da1"
+        android:onClick="send"
+        android:background="#abe2f7"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>
+
+</RelativeLayout>

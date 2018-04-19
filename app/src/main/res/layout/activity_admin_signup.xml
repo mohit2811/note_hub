@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.note_hub.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/picss" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADMIN_SIGNUP"
+        android:background="@drawable/round_rect"
+        android:textSize="30dp"
+        android:textColor="#95cd3fc6"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/welcome_text"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="ENTER NAME"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_rect"
+        android:id="@+id/et1"
+        android:layout_below="@id/welcome_text"
+        />
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="ENTER EMAIL ID"
+        android:maxLines="1"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_rect"
+        android:id="@+id/et2"
+        android:layout_below="@id/et1"
+
+        />
+
+    <EditText
+        android:id="@+id/et3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et4"
+        android:layout_alignStart="@+id/et4"
+        android:layout_below="@+id/et2"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/round_rect"
+        android:gravity="center"
+        android:hint="DATE OF BIRTH"
+
+        android:imeOptions="actionNext"
+        android:inputType="date"
+        android:maxLines="1"
+        android:padding="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="CONTACT NO."
+        android:maxLines="1"
+        android:inputType="number"
+        android:imeOptions="actionNext"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_rect"
+        android:id="@+id/et4"
+        android:layout_below="@id/et3"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et4"
+        android:hint="ENTER Password"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:id="@+id/et5"
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"
+        android:maxLines="1"
+        android:background="@drawable/round_rect"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:hint="CONFIRM PASSWORD"
+        android:maxLines="1"
+       android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_rect"
+        android:id="@+id/et6"
+        android:layout_below="@id/et5"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et6"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/roundd"
+        android:text="SUBMIT"
+        android:padding="15dp"
+        android:textColor="#fff"
+        android:onClick="submit"
+        android:id="@+id/log"
+        />
+</RelativeLayout>
+
+
+
+
+</ScrollView>

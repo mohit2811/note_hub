@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">note_hub</string>
+
+    <string-array name="departments">
+        <item>Mca</item>
+        <item>Bca</item>
+        <item>Btech</item>
+
+    </string-array>
+
+    <string-array name="session">
+        <item>2011-216</item>
+        <item>2012-2017</item>
+
+    </string-array>
+
+</resources>
