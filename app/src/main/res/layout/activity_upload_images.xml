@@ -5,34 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.admin.note_hub.UploadImagesActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#0070ef"
+        android:id="@+id/images"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:tint="#000"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:onClick="back6"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="IMAGE FILE"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="150dp"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>v
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Multiple File upload"
+        android:layout_below="@id/images"
         android:textColor="#000"
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
         android:id="@+id/Main_heading"
-        android:layout_margin="20dp"
+        android:layout_margin="30dp"
         />
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/Main_heading"
             android:id="@+id/btnn"
+            android:textColor="#000"
             android:background="@drawable/gradient3"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+        android:textStyle="bold"
             android:text="Select Files to Upload"
             android:layout_centerHorizontal="true"
             />
     <android.support.v7.widget.RecyclerView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/btnn"
         android:layout_centerHorizontal="true"
-        android:id="@+id/Upload_List"></android.support.v7.widget.RecyclerView>
+        android:id="@+id/Upload_List">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

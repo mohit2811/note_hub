@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.OpenableColumns;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -65,7 +69,13 @@ public class UploadImagesActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE1 && resultCode == RESULT_OK) {
             if (data.getClipData() != null) {
-                int totalItemSelected = data.getClipData().getItemCount();
+
+                final int totalItemSelected = data.getClipData().getItemCount();
+
+                final ArrayList<String> images_url = new ArrayList<>();
+
+                final int[] count = {0};
+
                 for (int i = 0; i < totalItemSelected; i++) {
                     Uri fileUri = data.getClipData().getItemAt(i).getUri();
                     String fileName = getFileName(fileUri);
@@ -73,18 +83,47 @@ public class UploadImagesActivity extends AppCompatActivity {
                     fileDoneList.add("uploading");
                     uploadListAdapter.notifyDataSetChanged();
 
+                    final  long currentTime = getIntent().getLongExtra("current_time" , 0);
 
                     StorageReference fileToUpload = mStorage.child("Image").child(fileName);
 
-                    final int finalI = i;
+
+
+
                     fileToUpload.putFile(fileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                           fileDoneList.remove(finalI);
-                           fileDoneList.add(finalI , "done");
+                            fileDoneList.remove(count[0]);
+                            fileDoneList.add(count[0], "done");
 
-                           uploadListAdapter.notifyDataSetChanged();
+                            uploadListAdapter.notifyDataSetChanged();
+
+                            images_url.add(String.valueOf(taskSnapshot.getDownloadUrl())) ;
+
+                            count[0]++;
+
+                            if( count[0] == totalItemSelected)
+                            {
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                                String url = "";
+                                for(int j = 0 ; j < totalItemSelected ; j ++)
+                                {
+                                    url = url +","+ images_url.get(j);
+
+                                }
+                                notesUrls urls = new notesUrls(url);
+
+                                database.getReference().child("images_url").child(String.valueOf(currentTime)).setValue(urls).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+
+                                        Toast.makeText(UploadImagesActivity.this, "Done", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+                            }
 
                         }
                     });
@@ -126,12 +165,7 @@ public class UploadImagesActivity extends AppCompatActivity {
         return result;
         }
 
-
-
-
-
-
-
-
-
+    public void back6(View view) {
+            finish();
     }
+}

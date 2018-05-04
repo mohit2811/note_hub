@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.example.admin.note_hub.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-      android:src="@drawable/book"
+      android:src="@drawable/butterfly"
        android:scaleType="centerCrop"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient"/>
+        android:background="@drawable/gradient7"/>
 
 
     <TextView
@@ -24,7 +25,7 @@
         android:text="NOTES HUB"
         android:background="@drawable/round_rect"
         android:textSize="30dp"
-        android:textColor="#fff"
+        android:textColor="#0070ef"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -74,6 +75,8 @@
         android:background="@drawable/round"
         android:text="LOGIN"
         android:padding="15dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
         android:textColor="#fff"
         android:onClick="login_1"
         android:id="@+id/log"
@@ -84,10 +87,12 @@
         android:text="Sign up"
         android:textColor="#fff"
         android:onClick="Sign_up"
+        android:textStyle="bold"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:padding="15dp"
         android:layout_margin="10dp"
+        android:textSize="20dp"
         android:background="@drawable/round1"
         android:layout_below="@+id/log"
         />

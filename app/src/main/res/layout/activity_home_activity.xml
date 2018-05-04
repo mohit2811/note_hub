@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bookss"
     android:id="@+id/d1">
 
     <LinearLayout
@@ -15,7 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/light_blue">
+            android:background="#0070ef">
 
             <ImageView
                 android:layout_width="50dp"
@@ -42,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/gradient"
+        android:background="@drawable/gradient2"
         android:layout_gravity="left"
 
         >
@@ -71,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PROFILE"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 android:textColor="#000"
                 android:onClick="profile1"
@@ -100,6 +102,7 @@
                 android:text="SEARCH NOTES"
                 android:textSize="20dp"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:onClick="search"
                 android:layout_weight="1"
                                 />
@@ -118,12 +121,13 @@
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
-                android:src="@drawable/feedback"
+                android:src="@drawable/feedbck"
                 android:tint="#000" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="FEEDBACK"
+                    android:textStyle="bold"
                     android:textSize="20dp"
                     android:textColor="#000"
                     android:onClick="feedback"
@@ -155,6 +159,7 @@
                 android:layout_height="wrap_content"
                 android:text="FAVOURITE NOTES"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:textColor="#000"
                 android:onClick="favnotes"
                 android:layout_weight="1"
@@ -185,6 +190,7 @@
                 android:text="ADD NOTES"
                 android:textSize="20dp"
                 android:textColor="#000"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:onClick="addnotes"
                 />
@@ -213,6 +219,7 @@
                 android:layout_height="wrap_content"
                 android:text="LOGOUT"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_weight="1"
                 />

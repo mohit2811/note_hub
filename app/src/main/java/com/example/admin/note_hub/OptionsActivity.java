@@ -1,6 +1,7 @@
 package com.example.admin.note_hub;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,18 +15,29 @@ public class OptionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
+        SharedPreferences sp = getSharedPreferences("app_info" , MODE_PRIVATE);
 
-        if(auth.getCurrentUser() == null)
+        if( sp.getString("type" , "").equals("") )
         {
 
         }
 
-        else {
+        else
+            {
 
-            Intent i = new Intent(OptionsActivity.this , home_activity.class);
+                if(sp.getString("type" , "").equals("user")) {
 
-            startActivity(i);
+                    Intent i = new Intent(OptionsActivity.this, home_activity.class);
+
+                    startActivity(i);
+                }
+
+                else {
+
+                    Intent i = new Intent(OptionsActivity.this, admin_interface.class);
+
+                    startActivity(i);
+                }
         }
 
     }

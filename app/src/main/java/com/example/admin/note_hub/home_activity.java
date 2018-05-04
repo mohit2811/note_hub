@@ -10,13 +10,17 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.admin.note_hub.dataModel.favourite_note_data;
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -67,6 +71,7 @@ public class home_activity extends AppCompatActivity {
 
     public void favnotes(View view) {
         Intent i = new Intent(home_activity.this , favourite_notes.class);
+        startActivity(i);
     }
 
     public void logout(View view) {
@@ -75,11 +80,14 @@ public class home_activity extends AppCompatActivity {
 
         auth.signOut();
 
+        getSharedPreferences("app_info" , MODE_PRIVATE).edit().clear().commit();
+
         Intent i = new Intent(home_activity.this , OptionsActivity.class);
 
         startActivity(i);
 
         finish();
+
 
     }
 
@@ -109,33 +117,36 @@ public class home_activity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                SignupData data = dataSnapshot.getValue(SignupData.class);
+                if(dataSnapshot.hasChildren()) {
+                    SignupData data = dataSnapshot.getValue(SignupData.class);
 
 
-                database.getReference().child("notes").child(data.department+"_"+data.session).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    database.getReference().child("notes").child(data.department + "_" + data.session).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        for (DataSnapshot snap : dataSnapshot.getChildren())
-                        {
-                            for (DataSnapshot snap1 : snap.getChildren())
-                            {
-                                NotesData data = snap1.getValue(NotesData.class);
+                            if(dataSnapshot.hasChildren()) {
+                                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                                    for (DataSnapshot snap1 : snap.getChildren()) {
+                                        NotesData data = snap1.getValue(NotesData.class);
 
-                                notes_list.add(data);
+                                        NotesData data_with_time = new NotesData(data.title, data.subject, data.department, data.session, data.type, snap1.getKey());
+                                        notes_list.add(data_with_time);
 
+                                    }
+                                }
+
+                                recyclerView.setAdapter(new Adapter());
                             }
+
                         }
 
-                        recyclerView.setAdapter(new Adapter());
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+                        }
+                    });
+                }
             }
 
             @Override
@@ -151,6 +162,10 @@ public class home_activity extends AppCompatActivity {
 
         public TextView title , subject , department , session;
 
+        public LinearLayout cell_layout;
+
+        public MaterialFavoriteButton fav_icon ;
+
         public view_holder(View itemView) {
             super(itemView);
 
@@ -158,10 +173,12 @@ public class home_activity extends AppCompatActivity {
             subject = itemView.findViewById(R.id.subject);
             department = itemView.findViewById(R.id.deparment);
             session = itemView.findViewById(R.id.session);
+            cell_layout = itemView.findViewById(R.id.cell_layout);
+
+            fav_icon = itemView.findViewById(R.id.fav_icon);
+
 
         }
-
-
 
     }
     public class Adapter extends RecyclerView.Adapter<view_holder>
@@ -173,10 +190,10 @@ public class home_activity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(view_holder holder, int position) {
+        public void onBindViewHolder(final view_holder holder, int position) {
 
 
-            NotesData data = notes_list.get(position);
+            final NotesData data = notes_list.get(position);
 
             holder.title.setText(data.title);
 
@@ -185,6 +202,67 @@ public class home_activity extends AppCompatActivity {
             holder.department.setText(data.department);
 
             holder.session.setText(data.session);
+
+            holder.fav_icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    holder.fav_icon.setFavorite(true , true);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                    FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                    String email = auth.getCurrentUser().getEmail().replace("." ,"");
+
+                    favourite_note_data fav_data = new favourite_note_data(data.title);
+
+                    database.getReference().child("favourites").child(email).child(data.time).setValue(fav_data);
+
+                }
+            });
+
+
+            holder.cell_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if(data.type.equals("Images")) {
+
+                        Intent i = new Intent(home_activity.this, Show_images_notes.class);
+
+                        i.putExtra("images_key", data.time);
+
+                        startActivity(i);
+                    }
+                    if(data.type.equals("Pdf"))
+                    {
+                        Intent i = new Intent(home_activity.this, ShowPdfActivity.class);
+
+                        i.putExtra("images_key", data.time);
+
+                        startActivity(i);
+                    }
+
+                    if(data.type.equals("Videos"))
+                    {
+                        Intent i = new Intent(home_activity.this, ShowVideoActivity.class);
+
+                        i.putExtra("images_key", data.time);
+
+                        startActivity(i);
+                    }
+
+                    if(data.type.equals("Audio"))
+                    {
+                        Intent i = new Intent(home_activity.this, PlayAudioActivity.class);
+
+                        i.putExtra("images_key", data.time);
+
+                        startActivity(i);
+                    }
+                }
+            });
 
         }
 

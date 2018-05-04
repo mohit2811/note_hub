@@ -3,141 +3,58 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/butterfly"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.admin.note_hub.favourite_notes"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+       android:background="@drawable/gradient7"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#f3adce"
+        android:background="#0070ef"
         android:id="@+id/favnote">
 
-        <android.support.design.widget.FloatingActionButton
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_backk"
-            onClick="favnotes"
+            android:src="@drawable/ic_back"
+            android:tint="#000000"
+            android:layout_margin="10dp"
+            android:onClick="back_btn"
+            android:layout_gravity="center"
             />
         <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FAVOURITE NOTES"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:textStyle="bold"
+
         android:textColor="#000"
         android:layout_alignParentRight="true"
         android:layout_marginRight="150dp"
         android:layout_margin="6dp"
-        />
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#faed"
-                android:layout_below="@id/favnote"
-                >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="10dp"
-                android:weightSum="2"
-                >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Posted By :"
-                    android:textSize="20dp"
-                    android:textColor="#000"
-                    android:layout_weight="1"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/favnote"
+        android:id="@+id/notes_recycler">
 
-            <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="name"
-        android:imeOptions="actionNext"
-        android:inputType="text"
-       android:maxLines="1"
-                android:layout_marginLeft="20dp"
-                android:textSize="20dp"
-                android:layout_weight="1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:weightSum="2">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Subject :"
-                    android:textSize="20dp"
-                    android:textColor="#000"
-                    android:layout_weight="1"/>
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="subject"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:weightSum="2">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Posted On :"
-                    android:textSize="20dp"
-                    android:textColor="#000"
-                    android:layout_weight="1"/>
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:hint="date"
-                    android:imeOptions="actionNext"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="10dp"
-                >
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="View"/>
-
-
-            </LinearLayout>
-        </LinearLayout>
+    </android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>

@@ -10,13 +10,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/owll"
+        android:src="@drawable/butterfly"
         android:scaleType="centerCrop"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient1"/>
+        android:background="@drawable/gradient7"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter Name"
+        android:textStyle="bold"
         android:textColor="#000"
         android:textSize="20dp"
 
@@ -52,6 +53,7 @@
         android:layout_height="wrap_content"
         android:text="Enter Email"
        android:layout_below="@id/et1"
+        android:textStyle="bold"
         android:gravity="center"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
@@ -77,6 +79,7 @@
         android:text="Enter Mobile Number"
         android:layout_below="@id/et2"
         android:gravity="center"
+        android:textStyle="bold"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
         android:textColor="#000"
@@ -104,7 +107,8 @@
             android:layout_below="@id/et2"
             android:gravity="center"
             android:textSize="20dp"
-            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+         android:layout_marginTop="10dp"
             android:textColor="#000"
             />
 
@@ -123,6 +127,7 @@
             android:gravity="center"
             android:textSize="20dp"
             android:layout_marginTop="10dp"
+            android:textStyle="bold"
             android:textColor="#000"
             />
 
@@ -142,6 +147,7 @@
         android:gravity="center"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
+        android:textStyle="bold"
         android:textColor="#000"
        />
 
@@ -166,6 +172,7 @@
         android:layout_below="@id/et4"
         android:gravity="center"
         android:textSize="20dp"
+        android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:textColor="#000"
        />
@@ -174,9 +181,8 @@
         android:layout_height="wrap_content"
         android:hint="Re-enter Password"
         android:gravity="center"
-
         android:maxLines="1"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:imeOptions="actionDone"
         android:padding="10dp"
         android:background="@drawable/round_rect"

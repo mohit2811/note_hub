@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -69,6 +71,11 @@ public class Add_Notes extends AppCompatActivity {
 
     public void open_upload_activity(View view) {
 
+        RadioGroup type_group = findViewById(R.id.notes_type);
+
+        RadioButton selected_type = findViewById(type_group.getCheckedRadioButtonId());
+
+        String type = selected_type.getText().toString();
 
         String title = title_et.getText().toString();
 
@@ -80,7 +87,7 @@ public class Add_Notes extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        NotesData data = new NotesData(title , subject , department ,session);
+        NotesData data = new NotesData(title , subject , department ,session , type);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
@@ -91,11 +98,49 @@ public class Add_Notes extends AppCompatActivity {
         database.getReference().child("notes").child(department+"_"+session).child(email.replace("." , "")).child(String.valueOf(current_time)).setValue(data);
 
 
+        if(type.equals("Images")) {
+            Intent i = new Intent(Add_Notes.this, UploadImagesActivity.class);
 
-        Intent i = new Intent(Add_Notes.this , UploadImagesActivity.class);
+            i.putExtra("current_time", current_time);
 
-        startActivity(i);
+            startActivity(i);
+        }
+
+        if(type.equals("Pdf"))
+        {
+            Intent i = new Intent(Add_Notes.this, uploading_pdf_file.class);
+
+            i.putExtra("current_time", current_time);
+
+            startActivity(i);
+
+        }
+
+        if(type.equals("Videos"))
+        {
+            Intent i = new Intent(Add_Notes.this, UploadVideoActivity.class);
+
+            i.putExtra("current_time", current_time);
+
+            startActivity(i);
+
+        }
+
+        if(type.equals("Audio"))
+        {
+            Intent i = new Intent(Add_Notes.this, Upload_audio_file.class);
+
+            i.putExtra("current_time", current_time);
+
+            startActivity(i);
+
+        }
+
+
     }
 
 
+    public void back7(View view) {
+        finish();
+    }
 }

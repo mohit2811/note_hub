@@ -2,6 +2,7 @@ package com.example.admin.note_hub;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,7 +56,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progress_bar.hide();
-                if (task.isSuccessful()) {
+                if (task.isSuccessful())
+                {
+
+                    SharedPreferences.Editor sp = getSharedPreferences("app_info" , MODE_PRIVATE).edit();
+
+                    sp.putString("type" , "user");
+
+                    sp.commit();
+
                     Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(MainActivity.this , home_activity.class);
                     startActivity(i);
@@ -82,4 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         finish();
     }
+
+
 }

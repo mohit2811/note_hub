@@ -4,28 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/butterfly"
     tools:context="com.example.admin.note_hub.search_notes">
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/ic_backk"
-
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="search by subject"
-        android:layout_marginLeft="80dp"
-        android:imeOptions="actionSearch"
-        android:inputType="textAutoComplete"/>
-    <ImageView
+<View
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient7"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_search"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="300dp"
-        android:onClick="search"/>
+        android:orientation="horizontal"
+        android:background="#0070ef"
+        android:id="@+id/search">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:tint="#0d0000"
+            android:onClick="go_back"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            />
+
+   <android.support.v7.widget.SearchView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/searchView">
+
+   </android.support.v7.widget.SearchView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/notes_recycler"
+        android:layout_below="@+id/search"
+        android:layout_marginTop="10dp">
+
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

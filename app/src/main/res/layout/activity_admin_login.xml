@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bookss"
+        android:src="@drawable/butterfly"
         android:scaleType="centerCrop"/>
 
     <View
@@ -24,7 +24,7 @@
         android:text="ADMIN_LOGIN"
         android:background="@drawable/round_rect"
         android:textSize="30dp"
-        android:textColor="#9187cefa"
+        android:textColor="#f50a56ed"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -72,24 +72,13 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/roundd"
         android:text="LOGIN"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:padding="15dp"
         android:textColor="#fff"
         android:onClick="login_1"
         android:id="@+id/log"
         />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/log"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/roundd"
-        android:text="SIGN UP"
-        android:padding="15dp"
-        android:layout_margin="10dp"
-        android:textColor="#fff"
-        android:onClick="login_1"
-        android:id="@+id/sign_up"
-        />
+
 
 </RelativeLayout>
